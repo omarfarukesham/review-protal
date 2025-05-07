@@ -9,9 +9,9 @@ export const navigationItems = [
     href: "/reviews",
     description: "",
   },
-  {
-    title: "Categories",
-    href: "/categories",
-    description: "",
-  },
+  // {
+  //   title: "Categories",
+  //   href: "/categories",
+  //   description: "",
+  // },
 ];

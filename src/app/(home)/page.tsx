@@ -4,11 +4,9 @@ import StatsSection from "@/components/Home/Stats";
 const Home = () => {
   return (
     <div>
-      {/* Banner section */}
       <Banner/>
-      {/* Review Section */}
       <ReviewSection />
-    <StatsSection />
+      <StatsSection />
     </div>
   );
 };
