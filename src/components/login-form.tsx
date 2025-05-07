@@ -52,6 +52,9 @@ export function LoginForm({
     const actionType = isRegistrationPage ? "create" : "login";
     if (isRegistrationPage) {
       result = await handleAuthentication(actionType, values as IAuth);
+      if(result.success){
+        router.push('/login')
+      }
     } else {
       result = await handleAuthentication(actionType, values as IAuth);
       const token = await getToken();
@@ -83,7 +86,7 @@ export function LoginForm({
       });
     }
     if (result?.success) {
-      router.push("/");
+      // router.push("/");
       toast.success(result.message, { id: toastId });
     } else {
       toast.error(result?.message, { id: toastId });

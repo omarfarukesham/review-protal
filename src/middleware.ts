@@ -8,14 +8,16 @@ export async function middleware(request: NextRequest) {
   const isPublicRoute =
     currentRoute === "/login" || currentRoute === "/register";
 
-  console.log("from middleware", session);
   if (!session && !isPublicRoute) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
+
+  let redirectRoute  = session?.user.role.toLowerCase() === 'admin' ?  `/dashboard/${session?.user.role.toLowerCase()}/analytics` :  `/dashboard/${session?.user.role.toLowerCase()}/my-reviews`
+
   if (session?.user && isPublicRoute) {
     return NextResponse.redirect(
       new URL(
-        `/dashboard/${session?.user.role.toLowerCase()}/profile`,
+        redirectRoute,
         request.url
       )
     );

@@ -25,33 +25,32 @@ import {
 // import { auth } from "@/auth";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+// import { GitPullRequest } from "lucide-react";
 
-const adminBar: {
-  title: string;
-  url: string;
-  icon?: Icon;
-}[] = [
+const adminBar = [
   {
     title: "Dashboard",
-    url: "/dashboard/admin",
+    url: "/dashboard/admin/analytics",
     icon: IconDashboard,
   },
   {
     title: "Create Review",
     url: "/dashboard/admin/create-review",
-    icon: IconListDetails,
+    icon: IconListDetails as Icon,
   },
   {
-    title: "Analytics",
-    url: "#",
-    icon: IconChartBar,
+    title: "My Reviews",
+    url: "/dashboard/user/my-reviews",
+    icon: IconListDetails,
   },
+
   {
     title: "Review Requests",
     url: "/dashboard/admin/review-request",
-    icon: IconGitPullRequest,
+    icon: IconGitPullRequest as Icon,
   },
 ];
+
 const userBar: {
   title: string;
   url: string;
