@@ -179,6 +179,8 @@ export default function ReviewManagementTable() {
                             <Image
                               src={review.imageUrl}
                               alt={review.title}
+                              width={48}
+                              height={48}
                               className="h-full w-full object-cover"
                             />
                           </div>
