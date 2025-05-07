@@ -1,6 +1,7 @@
 "use client";
 import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { SiteHeader } from "@/components/side-header";
+import {  SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 // import data from "./data.json"
 
@@ -15,6 +16,7 @@ export default function DashboradLayout({
     <SidebarProvider>
       <AppSidebar variant="inset" />
       <SidebarInset>
+      <SiteHeader  />
         <div className="flex flex-1 flex-col">{children}</div>
       </SidebarInset>
     </SidebarProvider>
