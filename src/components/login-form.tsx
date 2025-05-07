@@ -16,7 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from "./ui/form";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { IAuth } from "@/types/globals";
 import { toast } from "sonner";
@@ -32,6 +32,7 @@ export function LoginForm({
   const dispatch = useDispatch();
   const pathName = usePathname();
   const isRegistrationPage = pathName.endsWith("/register");
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -82,7 +83,7 @@ export function LoginForm({
       });
     }
     if (result?.success) {
-      // router.push("/");
+      router.push("/");
       toast.success(result.message, { id: toastId });
     } else {
       toast.error(result?.message, { id: toastId });
