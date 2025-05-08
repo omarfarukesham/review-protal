@@ -14,6 +14,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { paymentApi } from "./services/paymentApi";
 
 const persistConfig = {
   key: "auth",
@@ -27,6 +28,7 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     [reviewApi.reducerPath]: reviewApi.reducer,
     [commentApi.reducerPath]: commentApi.reducer,
+    [paymentApi.reducerPath]: paymentApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -35,7 +37,8 @@ export const store = configureStore({
       },
     })
       .concat(reviewApi.middleware)
-      .concat(commentApi.middleware),
+      .concat(commentApi.middleware)
+      .concat(paymentApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
